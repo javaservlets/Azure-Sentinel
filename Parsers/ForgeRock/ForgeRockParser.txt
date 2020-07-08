@@ -1,0 +1,3 @@
+CommonSecurityLog
+| where DeviceVendor in ("ForgeRock Inc")
+| extend user = split(split(AdditionalExtensions, ";", 3)[0], "=", 1)[0] // extract userID from  4th field in json payload
